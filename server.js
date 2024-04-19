@@ -12,12 +12,19 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
+const localUrl = "mongodb://127.0.0.1:27017/jobs";
+const externalUrl = "mongodb://51.140.210.101:27017/jobs"; // Använd din virtuella IP-adress här
+
 //connect to MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/jobs").then(()=> {
+mongoose.connect(externalUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
     console.log("connected to MongoDB");
 }).catch((err) => {
     console.log("Error while connecting to database: " + err);
 });
+
 
 //schedule for jobs
 const jobSchedule = new mongoose.Schema({

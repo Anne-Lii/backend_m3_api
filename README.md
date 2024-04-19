@@ -12,7 +12,11 @@ Denna webbtjänst är ett REST API byggt med express som hanterar arbetserfarenh
 
 ## Installation
 APIet använder en MongoDB databas.
-git clone
+
+`git clone https://github.com/Anne-Lii/backend_m3_api.git`
+`npm install`
+`node server.js` för att starta server
+
 
 
 ## Användning

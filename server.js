@@ -95,7 +95,7 @@ app.delete("/jobs/:id", async (req, res) => {
 }
 });
 
-
+//run app
 app.listen(port, () => {
 console.log("Server is running on port: " + port);
 });

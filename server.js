@@ -23,15 +23,15 @@ mongoose.connect("mongodb://127.0.0.1:27017/jobs").then(()=> {
 const jobSchedule = new mongoose.Schema({
     companyname: {
         type: String, 
-        required: true
+        required: [true, "Fyll i företagets namn"]
     },
     location: {
         type: String, 
-        required: true
+        required: [true, "Fyll i stad"]
     },
     jobtitle: {
         type: String, 
-        required: true
+        required: [true, "Fyll i jobbtitel"]
     },
     describtion: {
         type: String, 
@@ -55,6 +55,7 @@ app.get("/", async (req, res) => {
 res.json({message: " Välkommen"});
 });
 
+//GET
 app.get ("/jobs", async (req, res) => {
     try {
         let result = await Job.find({});
@@ -64,12 +65,33 @@ app.get ("/jobs", async (req, res) => {
     }
 });
 
+//POST
 app.post ("/jobs", async (req, res) => {
    try {
         let result = await Job.create(req.body);
         return res.json(result);
    } catch (err) {
         return res.status(400).json(err);
+}
+});
+
+//PUT
+app.put ("/jobs/:id", async (req, res) => {
+    try {
+         let job = await Job.findByIdAndUpdate(req.params.id, req.body, { new:true});
+         return res.json(job);
+    } catch (err) {
+         return res.status(400).json(err);
+}
+});
+
+//DELETE
+app.delete("/jobs/:id", async (req, res) => {
+    try {
+         await Job.findByIdAndDelete(req.params.id);
+         return res.json({message: "Jobb raderat"});
+    } catch (err) {
+         return res.status(500).json(err);
 }
 });
 

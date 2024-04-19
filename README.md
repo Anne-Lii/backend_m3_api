@@ -1,7 +1,19 @@
 # Arbetserfarenheter Webbtjänst
 ## Av Anne-Lii Hansen
 
-Denna webbtjänst hanterar arbetserfarenheter med hjälp av en MongoDB-databas.
+Denna webbtjänst är ett REST API byggt med express som hanterar arbetserfarenheter. 
+
+## Teknik
+**Node.js**
+**Express**
+**Cors**
+**MongoDB**
+**Mongoose**
+
+## Installation
+APIet använder en MongoDB databas.
+git clone
+
 
 ## Användning
 

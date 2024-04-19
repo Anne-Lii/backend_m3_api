@@ -1,0 +1,8 @@
+[build]
+  command = "npm start" 
+  publish = "."   
+
+[[redirects]]
+  from = "/*"
+  to = "/server.js" 
+  status = 200

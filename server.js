@@ -39,11 +39,11 @@ const jobSchedule = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: false
+        required: [true, "Fyll i beskrivning"]
     },
     startDate: {
         type: Date,
-        required: false
+        required: [true, "Fyll i startdatum"]
     },
     endDate: {
         type: Date,
